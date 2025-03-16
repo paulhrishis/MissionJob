@@ -4,7 +4,6 @@ public class temp {
 	public static void main(String[] args) {
         // Starting point for the pattern
         int start = 7;
-
         // Loop for each row
         for (int i = 0; i < 3; i++) {
             // Loop for each column

@@ -1,7 +1,5 @@
 package StringManipulation;
-
 import java.util.Scanner;
-
 public class String_Reversal {
     public static void main(String[] args) {
         System.out.println("Enter Y for using inbuilt method else enter N");

@@ -1,3 +1,4 @@
+package Number;
 
 
 import java.util.Scanner;

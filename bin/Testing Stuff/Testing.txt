@@ -1,0 +1,83 @@
+How can you enter value in particular field?
+	1. Using selenium:
+	Driver.findElement(By.xpath("xpath")).sendKeys("text");
+	2. Using javascriptexecutor
+	javascriptExecutor js = (javascriptExecutor) driver;
+	Js.executeScript("document.getElementByID("ID").value = "text");
+	
+How can you close particular window if multiple opened?
+String ParentWindow = driver.getWindowHandle();
+Set<String> set = driver.getWindowHandles();
+For(String str: set){
+Driver.switchTo().window(str);
+If(driver.getTitle().contains("window Title"));
+{driver.close();}}
+
+How can you take screenshot in selenium?
+TakesScreenshot ts = (TalesScreenshot)driver;
+File file = ts.getSceenshotAs(OutPutType.File);
+FileUtils.copyFile(file,new File("sometext.png"));
+
+How can you select dropdown from option list ?
+WebElement dropdown = driver.findElement(By.id("dropdownElementId")); 
+Select select = new Select(dropdown); 
+select.selectByVisibleText("Option Text");
+
+How can you handle alerts?
+WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+Alert alert = wait.until(ExpectedConditions.AlertIsPresent());
+Alert alert = driver.switchTo().alert();
+alert.dismiss();  alert.accept(); alert.sendKeys("sometext");
+
+Waits in selenium>>>>>>>>>>>>>>>]
+Implicit Wait>
+Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+Explicit wait>
+WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+WebElement ele = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("xpath")));
+
+Fluent Wait>>
+FluentWait<WebDriver> wait = new FluentWait<>(driver).withTimeOut(10).pollingEvery(Duration.ofSeconds(10)).ingnoring(Exception.class);
+WebElement ele = wait.until(driver -> driver.findElement(By.id("id")));
+
+How can you read data from excel using apache poi?
+File file = new File("MyFile.xlxs");
+FileInputStream fis = new FileInputStream(file);
+WorkBook wb = new XSSFWorkBook(fis);
+Sheet sheet = wb.getSheetAt(index);
+For(Row row :sheet){
+For(Cell cell:row){
+Cell.getNumericCellValue();
+Cell.getBooleanCellValue();
+Cell.getStringCellValue();
+}
+}
+
+How can you read data from Properties File?
+Properties properties = new Prooperties();
+FileInputStream fis = new FileInputStream("MyFile.properties");
+properties.load(fis);
+Proprties.getProperty("keyname");
+
+Exceptions in java:
+Checked:
+	1. IllegalAccessException
+	2. FileNotfoundException
+	3. NoSuchMethodException
+	4. ClassNotFoundException
+	5. NoSuchElementException
+Unchecked:
+	1. IndexOutOfBoundException
+	2. ArrayIndexOutOfBoundException
+	3. ArithmeticException
+	4. IllegalArgumentException
+	5. ConCurrentException
+Errors:
+StackOverflow
+OutOfMemory
+
+How can you perform drag and drop actions using java and selenium?
+WebElement source = driver.findElement(By.xpath("xpath"));
+WebElement destination = driver.findElement(By.xpath(destination));
+Actions action = new Actions(driver);
+action.dragAndDrop(source,destination).build().perform();
