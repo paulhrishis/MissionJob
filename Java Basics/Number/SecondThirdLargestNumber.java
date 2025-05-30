@@ -8,17 +8,25 @@ public static void main(String[] args) {
 	int ThirdMax = 0;
 
 		for(int j=0;j<intArray.length;j++) {
-			if(max < intArray[j]) {
-				ThirdMax = secondMax;
-				secondMax = max;
-				max = intArray[j];
-			}else if(secondMax<intArray[j]) {
-				ThirdMax = secondMax;
-				secondMax=intArray[j];
-			}else if(ThirdMax<intArray[j]){
-				ThirdMax = intArray[j];
-			}	
+			if(intArray[j] == max || intArray[j] == secondMax || intArray[j] == ThirdMax) {}
+			else {
+				if(max < intArray[j]) {
+					ThirdMax = secondMax;
+					secondMax = max;
+					max = intArray[j];
+				}else if(secondMax<intArray[j]) {
+					ThirdMax = secondMax;
+					secondMax=intArray[j];
+				}else if(ThirdMax<intArray[j]){
+					ThirdMax = intArray[j];
+				}	}
 		}
-	System.out.println("First/Second/Third largest are "+max+"  "+secondMax+ "  "+ThirdMax);
+		
+		if(max !=0)
+			System.out.println("max value is "+ max);
+		if(secondMax !=0)
+			System.out.println("second max is "+secondMax);
+		if(ThirdMax!=0)
+			System.out.println("third max is "+ ThirdMax);
 }
 }
